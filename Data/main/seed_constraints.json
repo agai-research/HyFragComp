@@ -1,0 +1,32 @@
+[
+ {
+  "constraint_id": "CST-01",
+  "type": "scope",
+  "expression": "foreign_scope => foreign_eligibility",
+  "provenance": "derived"
+ },
+ {
+  "constraint_id": "CST-02",
+  "type": "mandatory",
+  "expression": "registration => beneficial_ownership_check",
+  "provenance": "derived"
+ },
+ {
+  "constraint_id": "CST-03",
+  "type": "compatibility",
+  "expression": "digital_service compatible_with identity_verification",
+  "provenance": "derived"
+ },
+ {
+  "constraint_id": "CST-04",
+  "type": "ordering",
+  "expression": "identity_verification precedes registry_storage",
+  "provenance": "derived"
+ },
+ {
+  "constraint_id": "CST-05",
+  "type": "soundness",
+  "expression": "completed_workflow must satisfy required entry conditions and outputs",
+  "provenance": "derived"
+ }
+]

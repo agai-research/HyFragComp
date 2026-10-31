@@ -1,0 +1,442 @@
+{
+ "rid": "light_unseen",
+ "mode": "scratch",
+ "ok": true,
+ "rho": 0.0,
+ "delta": 3,
+ "n_goals": 3,
+ "status": {
+  "0": "new",
+  "1": "new",
+  "2": "new"
+ },
+ "cover": {
+  "0": [
+   "MAR.longstay.docs"
+  ],
+  "1": [
+   "MAR.longstay.appt_s",
+   "MAR.longstay.fee"
+  ],
+  "2": [
+   "MAR.longstay.sub"
+  ]
+ },
+ "fragments": [
+  "MAR.ent",
+  "MAR.longstay.appt_s",
+  "MAR.longstay.docs",
+  "MAR.longstay.fee",
+  "MAR.longstay.sub"
+ ],
+ "junctions": [
+  [
+   "MAR.ent",
+   "MAR.longstay.docs"
+  ],
+  [
+   "MAR.longstay.docs",
+   "MAR.longstay.appt_s"
+  ],
+  [
+   "MAR.longstay.fee",
+   "MAR.longstay.appt_s"
+  ],
+  [
+   "MAR.longstay.appt_s",
+   "MAR.longstay.sub"
+  ],
+  [
+   "MAR.ent",
+   "MAR.longstay.fee"
+  ]
+ ],
+ "witnesses": {
+  "0": {
+   "status": "new",
+   "fragments": [
+    "MAR.longstay.docs"
+   ],
+   "omega": [
+    "docs_ok:MAR.longstay"
+   ],
+   "line": "prepare the documentation file for the long-stay residence p: composed anew with ['MAR.longstay.docs'] (previous reuse refused: no-match)"
+  },
+  "1": {
+   "status": "new",
+   "fragments": [
+    "MAR.longstay.appt_s",
+    "MAR.longstay.fee"
+   ],
+   "omega": [
+    "appt_booked:MAR.longstay",
+    "fee_paid:MAR.longstay"
+   ],
+   "line": "reserve my appointment for the long-stay residence permit in: composed anew with ['MAR.longstay.appt_s', 'MAR.longstay.fee'] (previous reuse refused: no-match)"
+  },
+  "2": {
+   "status": "new",
+   "fragments": [
+    "MAR.longstay.sub"
+   ],
+   "omega": [
+    "notified:MAR.longstay",
+    "submitted:MAR.longstay"
+   ],
+   "line": "hand in my long-stay residence permit application in Morocco: composed anew with ['MAR.longstay.sub'] (previous reuse refused: no-match)"
+  }
+ },
+ "explanation": "prepare the documentation file for the long-stay residence p: composed anew with ['MAR.longstay.docs'] (previous reuse refused: no-match)\nreserve my appointment for the long-stay residence permit in: composed anew with ['MAR.longstay.appt_s', 'MAR.longstay.fee'] (previous reuse refused: no-match)\nhand in my long-stay residence permit application in Morocco: composed anew with ['MAR.longstay.sub'] (previous reuse refused: no-match)\nrejected ['MAR.longstay.appt_p'] by guard\nrejected ['MAR.longstay.appt_s'] by c4",
+ "repairs": 0,
+ "stats": {
+  "t": {
+   "abstraction": 0.00033213200001114274,
+   "decompose": 0.011557198000019753,
+   "encoding": 0.0031824159999871426,
+   "recall": 0.0006975809999971716,
+   "recompose": 0.006392003000001978,
+   "verify": 0.0005382079999947109,
+   "explain": 0.0001457729999856383,
+   "memory": 0.0006610810000040601,
+   "promotion": 6.375199998842618e-05
+  },
+  "calls": {
+   "cur": 1,
+   "int": 1,
+   "pln": 1,
+   "ret": 1,
+   "sel": 3,
+   "com": 1,
+   "exp": 1
+  },
+  "tok_in": {
+   "cur": 94,
+   "int": 94,
+   "pln": 92,
+   "ret": 92,
+   "sel": 418,
+   "com": 33,
+   "exp": 233
+  },
+  "tok_out": {
+   "cur": 76,
+   "int": 88,
+   "pln": 106,
+   "ret": 67,
+   "sel": 24,
+   "com": 25,
+   "exp": 109
+  },
+  "pred": {
+   "ann": 6,
+   "V5": 2,
+   "chi_fun": 9,
+   "chi_dat": 9,
+   "chi_rol": 9,
+   "chi_tmp": 9,
+   "guard": 33,
+   "c4": 5,
+   "sound": 7,
+   "promo": 1
+  },
+  "llm_ms": {
+   "cur": 1976.488888888889,
+   "int": 2243.1555555555556,
+   "pln": 2642.355555555556,
+   "ret": 1775.6888888888889,
+   "sel": 1450.5333333333333,
+   "com": 818.7555555555555,
+   "exp": 2765.422222222222
+  },
+  "total_ms": 13695.97014399999,
+  "compute_ms": 23.570143999990023,
+  "llm_total_ms": 13672.4,
+  "calls_total": 9,
+  "tok_in_total": 1056,
+  "tok_out_total": 495
+ },
+ "composition": {
+  "elements": [
+   {
+    "id": "MAR.ent",
+    "type": "ENT",
+    "kind": "atm",
+    "text": "Identity check and dossier opening at the Morocco administration",
+    "pre": [
+     "applicant_present",
+     "jur:MAR"
+    ],
+    "post": [
+     "dossier_open:MAR"
+    ],
+    "inputs": [
+     "id_scan"
+    ],
+    "outputs": [
+     "dossier"
+    ],
+    "roles": [
+     "agency",
+     "citizen"
+    ],
+    "guard": "",
+    "window": [
+     0,
+     10000000
+    ],
+    "rev": 1,
+    "goal": null,
+    "origin": "entry"
+   },
+   {
+    "id": "MAR.longstay.docs",
+    "type": "INT",
+    "kind": "atm",
+    "text": "Document collection and verification for a long-stay residence permit in Morocco",
+    "pre": [
+     "dossier_open:MAR",
+     "jur:MAR"
+    ],
+    "post": [
+     "docs_ok:MAR.longstay"
+    ],
+    "inputs": [
+     "proofs"
+    ],
+    "outputs": [
+     "verified_dossier"
+    ],
+    "roles": [
+     "agency",
+     "citizen"
+    ],
+    "guard": "",
+    "window": [
+     0,
+     10000000
+    ],
+    "rev": 1,
+    "goal": 0,
+    "origin": "new"
+   },
+   {
+    "id": "MAR.longstay.fee",
+    "type": "INT",
+    "kind": "atm",
+    "text": "Fee payment and receipt for a long-stay residence permit in Morocco",
+    "pre": [
+     "dossier_open:MAR",
+     "jur:MAR"
+    ],
+    "post": [
+     "fee_paid:MAR.longstay"
+    ],
+    "inputs": [
+     "payment_method"
+    ],
+    "outputs": [
+     "receipt"
+    ],
+    "roles": [
+     "agency",
+     "citizen"
+    ],
+    "guard": "",
+    "window": [
+     0,
+     10000000
+    ],
+    "rev": 1,
+    "goal": 1,
+    "origin": "new"
+   },
+   {
+    "id": "MAR.longstay.appt_s",
+    "type": "VAR",
+    "kind": "atm",
+    "text": "Standard appointment booking for a long-stay residence permit in Morocco",
+    "pre": [
+     "docs_ok:MAR.longstay",
+     "dossier_open:MAR",
+     "fee_paid:MAR.longstay",
+     "jur:MAR"
+    ],
+    "post": [
+     "appt_booked:MAR.longstay"
+    ],
+    "inputs": [],
+    "outputs": [
+     "appointment"
+    ],
+    "roles": [
+     "agency",
+     "citizen"
+    ],
+    "guard": "",
+    "window": [
+     0,
+     10000000
+    ],
+    "rev": 1,
+    "goal": 1,
+    "origin": "new"
+   },
+   {
+    "id": "MAR.longstay.sub",
+    "type": "TER",
+    "kind": "atm",
+    "text": "Submission of the long-stay residence permit application and applicant notification in Morocco",
+    "pre": [
+     "appt_booked:MAR.longstay",
+     "dossier_open:MAR",
+     "jur:MAR"
+    ],
+    "post": [
+     "notified:MAR.longstay",
+     "submitted:MAR.longstay"
+    ],
+    "inputs": [
+     "application_form"
+    ],
+    "outputs": [
+     "receipt_of_submission"
+    ],
+    "roles": [
+     "agency",
+     "citizen"
+    ],
+    "guard": "",
+    "window": [
+     0,
+     10000000
+    ],
+    "rev": 1,
+    "goal": 2,
+    "origin": "new"
+   }
+  ],
+  "relations": [
+   {
+    "edge": "MAR.longstay.e1.Xrb",
+    "pattern": "and",
+    "guard": "",
+    "tail": [
+     "MAR.ent"
+    ],
+    "head": [
+     "MAR.longstay.docs",
+     "MAR.longstay.fee"
+    ]
+   },
+   {
+    "edge": "MAR.longstay.e2.L",
+    "pattern": "xor",
+    "guard": "priority_status",
+    "tail": [
+     "MAR.longstay.docs",
+     "MAR.longstay.fee"
+    ],
+    "head": [
+     "MAR.longstay.appt_s"
+    ]
+   },
+   {
+    "edge": "MAR.longstay.e3",
+    "pattern": "seq",
+    "guard": "",
+    "tail": [
+     "MAR.longstay.appt_s"
+    ],
+    "head": [
+     "MAR.longstay.sub"
+    ]
+   }
+  ],
+  "junctions": [
+   [
+    "MAR.ent",
+    "MAR.longstay.docs"
+   ],
+   [
+    "MAR.longstay.docs",
+    "MAR.longstay.appt_s"
+   ],
+   [
+    "MAR.longstay.fee",
+    "MAR.longstay.appt_s"
+   ],
+   [
+    "MAR.longstay.appt_s",
+    "MAR.longstay.sub"
+   ],
+   [
+    "MAR.ent",
+    "MAR.longstay.fee"
+   ]
+  ],
+  "verification": {
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true,
+   "C5": true
+  },
+  "repair_rounds": 0
+ },
+ "rejections": [
+  [
+   "MAR.longstay.appt_p",
+   "guard"
+  ],
+  [
+   "MAR.longstay.appt_s",
+   "c4"
+  ],
+  [
+   "MAR.longstay.appt_p",
+   "guard"
+  ]
+ ],
+ "failed_checks": {},
+ "verification": {
+  "C1": true,
+  "C2": true,
+  "C3": true,
+  "C4": true,
+  "C5": true
+ },
+ "goals": [
+  {
+   "gid": 0,
+   "key": [
+    "MAR.longstay",
+    "docs",
+    ""
+   ],
+   "text": "prepare the documentation file for the long-stay residence permit in Morocco",
+   "slots": {}
+  },
+  {
+   "gid": 1,
+   "key": [
+    "MAR.longstay",
+    "appt",
+    ""
+   ],
+   "text": "reserve my appointment for the long-stay residence permit in Morocco and clear the charge",
+   "slots": {}
+  },
+  {
+   "gid": 2,
+   "key": [
+    "MAR.longstay",
+    "sub",
+    ""
+   ],
+   "text": "hand in my long-stay residence permit application in Morocco and make sure of by <CHANNEL>",
+   "slots": {
+    "channel": "SMS"
+   }
+  }
+ ]
+}

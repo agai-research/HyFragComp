@@ -1,0 +1,9 @@
+{
+ "generic_atoms": "an atom 'a:p' specialises the generic atom 'a'",
+ "conflicts": [
+  [
+   "no_valid_permit",
+   "valid_permit_held"
+  ]
+ ]
+}

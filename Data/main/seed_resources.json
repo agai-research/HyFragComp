@@ -1,0 +1,92 @@
+[
+ {
+  "resource_id": "res_business_registry",
+  "name": "Business registration registry",
+  "resource_type": "registry",
+  "scope": [
+   "domestic",
+   "foreign"
+  ],
+  "provenance": "derived"
+ },
+ {
+  "resource_id": "res_identity_provider",
+  "name": "Digital identity / verification service",
+  "resource_type": "identity",
+  "scope": [
+   "domestic",
+   "foreign"
+  ],
+  "provenance": "derived"
+ },
+ {
+  "resource_id": "res_beneficial_owner_registry",
+  "name": "Beneficial ownership registry",
+  "resource_type": "registry",
+  "scope": [
+   "domestic",
+   "foreign"
+  ],
+  "provenance": "derived"
+ },
+ {
+  "resource_id": "res_company_database",
+  "name": "Company information database",
+  "resource_type": "database",
+  "scope": [
+   "domestic",
+   "foreign"
+  ],
+  "provenance": "derived"
+ },
+ {
+  "resource_id": "res_interagency_gateway",
+  "name": "Inter-agency information exchange gateway",
+  "resource_type": "integration",
+  "scope": [
+   "domestic",
+   "foreign"
+  ],
+  "provenance": "derived"
+ },
+ {
+  "resource_id": "res_business_identifier",
+  "name": "Unique business identifier service",
+  "resource_type": "identifier",
+  "scope": [
+   "domestic",
+   "foreign"
+  ],
+  "provenance": "derived"
+ },
+ {
+  "resource_id": "res_public_information_portal",
+  "name": "Business information public portal",
+  "resource_type": "portal",
+  "scope": [
+   "domestic",
+   "foreign"
+  ],
+  "provenance": "derived"
+ },
+ {
+  "resource_id": "res_statistics_system",
+  "name": "Business-entry statistics system",
+  "resource_type": "analytics",
+  "scope": [
+   "domestic",
+   "foreign"
+  ],
+  "provenance": "derived"
+ },
+ {
+  "resource_id": "res_licensing_database",
+  "name": "Licensing and environmental requirements database",
+  "resource_type": "database",
+  "scope": [
+   "domestic",
+   "foreign"
+  ],
+  "provenance": "derived"
+ }
+]

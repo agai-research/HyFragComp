@@ -1,0 +1,4 @@
+cbr:
+  mcs_budget: 400000
+  sim_threshold: 0.9
+  top_semantic: 10

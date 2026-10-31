@@ -1,0 +1,517 @@
+{
+ "rid": "first_std",
+ "mode": "scratch",
+ "ok": true,
+ "rho": 0.0,
+ "delta": 4,
+ "n_goals": 4,
+ "status": {
+  "0": "new",
+  "1": "new",
+  "2": "new",
+  "3": "new"
+ },
+ "cover": {
+  "0": [
+   "MAR.longstay.elig_f"
+  ],
+  "1": [
+   "MAR.longstay.docs"
+  ],
+  "2": [
+   "MAR.longstay.appt_s",
+   "MAR.longstay.fee"
+  ],
+  "3": [
+   "MAR.longstay.sub"
+  ]
+ },
+ "fragments": [
+  "MAR.ent",
+  "MAR.longstay.appt_s",
+  "MAR.longstay.docs",
+  "MAR.longstay.elig_f",
+  "MAR.longstay.fee",
+  "MAR.longstay.sub"
+ ],
+ "junctions": [
+  [
+   "MAR.ent",
+   "MAR.longstay.docs"
+  ],
+  [
+   "MAR.ent",
+   "MAR.longstay.elig_f"
+  ],
+  [
+   "MAR.longstay.elig_f",
+   "MAR.longstay.appt_s"
+  ],
+  [
+   "MAR.longstay.docs",
+   "MAR.longstay.appt_s"
+  ],
+  [
+   "MAR.longstay.fee",
+   "MAR.longstay.appt_s"
+  ],
+  [
+   "MAR.longstay.appt_s",
+   "MAR.longstay.sub"
+  ],
+  [
+   "MAR.ent",
+   "MAR.longstay.fee"
+  ]
+ ],
+ "witnesses": {
+  "0": {
+   "status": "new",
+   "fragments": [
+    "MAR.longstay.elig_f"
+   ],
+   "omega": [
+    "eligible:MAR.longstay"
+   ],
+   "line": "confirm my eligibility for the long-stay residence permit in: composed anew with ['MAR.longstay.elig_f'] (previous reuse refused: no-match)"
+  },
+  "1": {
+   "status": "new",
+   "fragments": [
+    "MAR.longstay.docs"
+   ],
+   "omega": [
+    "docs_ok:MAR.longstay"
+   ],
+   "line": "prepare the documentation file for the long-stay residence p: composed anew with ['MAR.longstay.docs'] (previous reuse refused: no-match)"
+  },
+  "2": {
+   "status": "new",
+   "fragments": [
+    "MAR.longstay.appt_s",
+    "MAR.longstay.fee"
+   ],
+   "omega": [
+    "appt_booked:MAR.longstay",
+    "fee_paid:MAR.longstay"
+   ],
+   "line": "schedule an appointment for the long-stay residence permit i: composed anew with ['MAR.longstay.appt_s', 'MAR.longstay.fee'] (previous reuse refused: no-match)"
+  },
+  "3": {
+   "status": "new",
+   "fragments": [
+    "MAR.longstay.sub"
+   ],
+   "omega": [
+    "notified:MAR.longstay",
+    "submitted:MAR.longstay"
+   ],
+   "line": "submit my long-stay residence permit file in Morocco: composed anew with ['MAR.longstay.sub'] (previous reuse refused: no-match)"
+  }
+ },
+ "explanation": "confirm my eligibility for the long-stay residence permit in: composed anew with ['MAR.longstay.elig_f'] (previous reuse refused: no-match)\nprepare the documentation file for the long-stay residence p: composed anew with ['MAR.longstay.docs'] (previous reuse refused: no-match)\nschedule an appointment for the long-stay residence permit i: composed anew with ['MAR.longstay.appt_s', 'MAR.longstay.fee'] (previous reuse refused: no-match)\nsubmit my long-stay residence permit file in Morocco: composed anew with ['MAR.longstay.sub'] (previous reuse refused: no-match)\nrejected ['MAR.longstay.elig_r'] by chi_fun\nrejected ['MAR.longstay.appt_s'] by c4\nrejected ['MAR.longstay.appt_p'] by guard",
+ "repairs": 0,
+ "stats": {
+  "t": {
+   "abstraction": 0.0005095639999979085,
+   "decompose": 0.02863086799999337,
+   "encoding": 0.0020328659999790943,
+   "recall": 0.0007038109999939479,
+   "recompose": 0.009326477000001887,
+   "verify": 0.0005614879999882305,
+   "explain": 0.00011038400000984439,
+   "memory": 0.0005317449999893142,
+   "promotion": 8.366700001261052e-05
+  },
+  "calls": {
+   "cur": 1,
+   "int": 1,
+   "pln": 1,
+   "ret": 1,
+   "sel": 4,
+   "com": 1,
+   "exp": 1
+  },
+  "tok_in": {
+   "cur": 140,
+   "int": 134,
+   "pln": 130,
+   "ret": 95,
+   "sel": 551,
+   "com": 33,
+   "exp": 293
+  },
+  "tok_out": {
+   "cur": 116,
+   "int": 127,
+   "pln": 119,
+   "ret": 71,
+   "sel": 33,
+   "com": 31,
+   "exp": 142
+  },
+  "pred": {
+   "ann": 8,
+   "V5": 1,
+   "chi_fun": 13,
+   "chi_dat": 12,
+   "chi_rol": 12,
+   "chi_tmp": 12,
+   "guard": 39,
+   "c4": 7,
+   "sound": 9,
+   "promo": 1
+  },
+  "llm_ms": {
+   "cur": 2883.777777777778,
+   "int": 3125.822222222222,
+   "pln": 2946.4444444444443,
+   "ret": 1865.7777777777778,
+   "sel": 1953.7333333333331,
+   "com": 952.088888888889,
+   "exp": 3522.7555555555555
+  },
+  "total_ms": 17292.890869999967,
+  "compute_ms": 42.49086999996621,
+  "llm_total_ms": 17250.4,
+  "calls_total": 10,
+  "tok_in_total": 1376,
+  "tok_out_total": 639
+ },
+ "composition": {
+  "elements": [
+   {
+    "id": "MAR.ent",
+    "type": "ENT",
+    "kind": "atm",
+    "text": "Identity check and dossier opening at the Morocco administration",
+    "pre": [
+     "applicant_present",
+     "jur:MAR"
+    ],
+    "post": [
+     "dossier_open:MAR"
+    ],
+    "inputs": [
+     "id_scan"
+    ],
+    "outputs": [
+     "dossier"
+    ],
+    "roles": [
+     "agency",
+     "citizen"
+    ],
+    "guard": "",
+    "window": [
+     0,
+     10000000
+    ],
+    "rev": 1,
+    "goal": null,
+    "origin": "entry"
+   },
+   {
+    "id": "MAR.longstay.docs",
+    "type": "INT",
+    "kind": "atm",
+    "text": "Document collection and verification for a long-stay residence permit in Morocco",
+    "pre": [
+     "dossier_open:MAR",
+     "jur:MAR"
+    ],
+    "post": [
+     "docs_ok:MAR.longstay"
+    ],
+    "inputs": [
+     "proofs"
+    ],
+    "outputs": [
+     "verified_dossier"
+    ],
+    "roles": [
+     "agency",
+     "citizen"
+    ],
+    "guard": "",
+    "window": [
+     0,
+     10000000
+    ],
+    "rev": 1,
+    "goal": 1,
+    "origin": "new"
+   },
+   {
+    "id": "MAR.longstay.elig_f",
+    "type": "INT",
+    "kind": "atm",
+    "text": "Eligibility assessment for the first application of a long-stay residence permit in Morocco",
+    "pre": [
+     "dossier_open:MAR",
+     "jur:MAR",
+     "no_valid_permit"
+    ],
+    "post": [
+     "eligible:MAR.longstay"
+    ],
+    "inputs": [],
+    "outputs": [
+     "eligibility_decision"
+    ],
+    "roles": [
+     "agency",
+     "citizen"
+    ],
+    "guard": "",
+    "window": [
+     0,
+     10000000
+    ],
+    "rev": 1,
+    "goal": 0,
+    "origin": "new"
+   },
+   {
+    "id": "MAR.longstay.fee",
+    "type": "INT",
+    "kind": "atm",
+    "text": "Fee payment and receipt for a long-stay residence permit in Morocco",
+    "pre": [
+     "dossier_open:MAR",
+     "jur:MAR"
+    ],
+    "post": [
+     "fee_paid:MAR.longstay"
+    ],
+    "inputs": [
+     "payment_method"
+    ],
+    "outputs": [
+     "receipt"
+    ],
+    "roles": [
+     "agency",
+     "citizen"
+    ],
+    "guard": "",
+    "window": [
+     0,
+     10000000
+    ],
+    "rev": 1,
+    "goal": 2,
+    "origin": "new"
+   },
+   {
+    "id": "MAR.longstay.appt_s",
+    "type": "VAR",
+    "kind": "atm",
+    "text": "Standard appointment booking for a long-stay residence permit in Morocco",
+    "pre": [
+     "docs_ok:MAR.longstay",
+     "dossier_open:MAR",
+     "fee_paid:MAR.longstay",
+     "jur:MAR"
+    ],
+    "post": [
+     "appt_booked:MAR.longstay"
+    ],
+    "inputs": [],
+    "outputs": [
+     "appointment"
+    ],
+    "roles": [
+     "agency",
+     "citizen"
+    ],
+    "guard": "",
+    "window": [
+     0,
+     10000000
+    ],
+    "rev": 1,
+    "goal": 2,
+    "origin": "new"
+   },
+   {
+    "id": "MAR.longstay.sub",
+    "type": "TER",
+    "kind": "atm",
+    "text": "Submission of the long-stay residence permit application and applicant notification in Morocco",
+    "pre": [
+     "appt_booked:MAR.longstay",
+     "dossier_open:MAR",
+     "jur:MAR"
+    ],
+    "post": [
+     "notified:MAR.longstay",
+     "submitted:MAR.longstay"
+    ],
+    "inputs": [
+     "application_form"
+    ],
+    "outputs": [
+     "receipt_of_submission"
+    ],
+    "roles": [
+     "agency",
+     "citizen"
+    ],
+    "guard": "",
+    "window": [
+     0,
+     10000000
+    ],
+    "rev": 1,
+    "goal": 3,
+    "origin": "new"
+   }
+  ],
+  "relations": [
+   {
+    "edge": "MAR.longstay.e1.Xfb",
+    "pattern": "and",
+    "guard": "",
+    "tail": [
+     "MAR.ent"
+    ],
+    "head": [
+     "MAR.longstay.docs",
+     "MAR.longstay.elig_f",
+     "MAR.longstay.fee"
+    ]
+   },
+   {
+    "edge": "MAR.longstay.e2.Sf",
+    "pattern": "xor",
+    "guard": "priority_status",
+    "tail": [
+     "MAR.longstay.docs",
+     "MAR.longstay.elig_f",
+     "MAR.longstay.fee"
+    ],
+    "head": [
+     "MAR.longstay.appt_s"
+    ]
+   },
+   {
+    "edge": "MAR.longstay.e3",
+    "pattern": "seq",
+    "guard": "",
+    "tail": [
+     "MAR.longstay.appt_s"
+    ],
+    "head": [
+     "MAR.longstay.sub"
+    ]
+   }
+  ],
+  "junctions": [
+   [
+    "MAR.ent",
+    "MAR.longstay.docs"
+   ],
+   [
+    "MAR.ent",
+    "MAR.longstay.elig_f"
+   ],
+   [
+    "MAR.longstay.elig_f",
+    "MAR.longstay.appt_s"
+   ],
+   [
+    "MAR.longstay.docs",
+    "MAR.longstay.appt_s"
+   ],
+   [
+    "MAR.longstay.fee",
+    "MAR.longstay.appt_s"
+   ],
+   [
+    "MAR.longstay.appt_s",
+    "MAR.longstay.sub"
+   ],
+   [
+    "MAR.ent",
+    "MAR.longstay.fee"
+   ]
+  ],
+  "verification": {
+   "C1": true,
+   "C2": true,
+   "C3": true,
+   "C4": true,
+   "C5": true
+  },
+  "repair_rounds": 0
+ },
+ "rejections": [
+  [
+   "MAR.longstay.elig_r",
+   "chi_fun"
+  ],
+  [
+   "MAR.longstay.appt_s",
+   "c4"
+  ],
+  [
+   "MAR.longstay.appt_p",
+   "guard"
+  ],
+  [
+   "MAR.longstay.appt_p",
+   "guard"
+  ]
+ ],
+ "failed_checks": {},
+ "verification": {
+  "C1": true,
+  "C2": true,
+  "C3": true,
+  "C4": true,
+  "C5": true
+ },
+ "goals": [
+  {
+   "gid": 0,
+   "key": [
+    "MAR.longstay",
+    "elig",
+    "first"
+   ],
+   "text": "confirm my eligibility for the long-stay residence permit in Morocco",
+   "slots": {}
+  },
+  {
+   "gid": 1,
+   "key": [
+    "MAR.longstay",
+    "docs",
+    ""
+   ],
+   "text": "prepare the documentation file for the long-stay residence permit in Morocco",
+   "slots": {}
+  },
+  {
+   "gid": 2,
+   "key": [
+    "MAR.longstay",
+    "appt",
+    ""
+   ],
+   "text": "schedule an appointment for the long-stay residence permit in Morocco",
+   "slots": {}
+  },
+  {
+   "gid": 3,
+   "key": [
+    "MAR.longstay",
+    "sub",
+    ""
+   ],
+   "text": "submit my long-stay residence permit file in Morocco",
+   "slots": {}
+  }
+ ]
+}

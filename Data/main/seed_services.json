@@ -1,0 +1,460 @@
+[
+ {
+  "service_id": "svc_name_approval",
+  "name": "Company-name approval and validation",
+  "type": "derived_capability",
+  "source_mapping": {
+   "pillar": "P1",
+   "subcategory": "1.1.1"
+  },
+  "provenance": "derived",
+  "resources": [
+   "res_business_registry"
+  ],
+  "requirements": [
+   "REQ-R01"
+  ],
+  "constraints": [],
+  "input_output": {
+   "inputs": [
+    "contextual_business_entry_request"
+   ],
+   "outputs": [
+    "updated_business_entry_state"
+   ]
+  }
+ },
+ {
+  "service_id": "svc_company_info",
+  "name": "Company information filing",
+  "type": "derived_capability",
+  "source_mapping": {
+   "pillar": "P1",
+   "subcategory": "1.1.1"
+  },
+  "provenance": "derived",
+  "resources": [
+   "res_business_registry",
+   "res_company_database"
+  ],
+  "requirements": [
+   "REQ-R01"
+  ],
+  "constraints": [],
+  "input_output": {
+   "inputs": [
+    "contextual_business_entry_request"
+   ],
+   "outputs": [
+    "updated_business_entry_state"
+   ]
+  }
+ },
+ {
+  "service_id": "svc_shareholder_info",
+  "name": "Shareholder information registration",
+  "type": "derived_capability",
+  "source_mapping": {
+   "pillar": "P1",
+   "subcategory": "1.1.1"
+  },
+  "provenance": "derived",
+  "resources": [
+   "res_business_registry"
+  ],
+  "requirements": [
+   "REQ-R01"
+  ],
+  "constraints": [],
+  "input_output": {
+   "inputs": [
+    "contextual_business_entry_request"
+   ],
+   "outputs": [
+    "updated_business_entry_state"
+   ]
+  }
+ },
+ {
+  "service_id": "svc_bo_filing",
+  "name": "Beneficial ownership filing",
+  "type": "derived_capability",
+  "source_mapping": {
+   "pillar": "P1",
+   "subcategory": "1.1.2"
+  },
+  "provenance": "derived",
+  "resources": [
+   "res_beneficial_owner_registry"
+  ],
+  "requirements": [
+   "REQ-R02"
+  ],
+  "constraints": [],
+  "input_output": {
+   "inputs": [
+    "contextual_business_entry_request"
+   ],
+   "outputs": [
+    "updated_business_entry_state"
+   ]
+  }
+ },
+ {
+  "service_id": "svc_simplified_registration",
+  "name": "Simplified registration channel",
+  "type": "derived_capability",
+  "source_mapping": {
+   "pillar": "P1",
+   "subcategory": "1.1.3"
+  },
+  "provenance": "derived",
+  "resources": [
+   "res_business_registry"
+  ],
+  "requirements": [
+   "REQ-R01"
+  ],
+  "constraints": [],
+  "input_output": {
+   "inputs": [
+    "contextual_business_entry_request"
+   ],
+   "outputs": [
+    "updated_business_entry_state"
+   ]
+  }
+ },
+ {
+  "service_id": "svc_risk_license",
+  "name": "Risk-based operating/environmental licensing check",
+  "type": "derived_capability",
+  "source_mapping": {
+   "pillar": "P1",
+   "subcategory": "1.1.4"
+  },
+  "provenance": "derived",
+  "resources": [
+   "res_licensing_database"
+  ],
+  "requirements": [
+   "REQ-R06"
+  ],
+  "constraints": [],
+  "input_output": {
+   "inputs": [
+    "contextual_business_entry_request"
+   ],
+   "outputs": [
+    "updated_business_entry_state"
+   ]
+  }
+ },
+ {
+  "service_id": "svc_domestic_rules",
+  "name": "Domestic registration eligibility check",
+  "type": "derived_capability",
+  "source_mapping": {
+   "pillar": "P1",
+   "subcategory": "1.2.1"
+  },
+  "provenance": "derived",
+  "resources": [
+   "res_business_registry",
+   "res_licensing_database"
+  ],
+  "requirements": [
+   "REQ-R03"
+  ],
+  "constraints": [],
+  "input_output": {
+   "inputs": [
+    "contextual_business_entry_request"
+   ],
+   "outputs": [
+    "updated_business_entry_state"
+   ]
+  }
+ },
+ {
+  "service_id": "svc_foreign_rules",
+  "name": "Foreign registration eligibility check",
+  "type": "derived_capability",
+  "source_mapping": {
+   "pillar": "P1",
+   "subcategory": "1.2.2"
+  },
+  "provenance": "derived",
+  "resources": [
+   "res_business_registry",
+   "res_licensing_database"
+  ],
+  "requirements": [
+   "REQ-R04"
+  ],
+  "constraints": [
+   "CST-01"
+  ],
+  "input_output": {
+   "inputs": [
+    "contextual_business_entry_request"
+   ],
+   "outputs": [
+    "updated_business_entry_state"
+   ]
+  }
+ },
+ {
+  "service_id": "svc_digital_startup",
+  "name": "Digital business start-up process",
+  "type": "derived_capability",
+  "source_mapping": {
+   "pillar": "P2",
+   "subcategory": "2.1.1"
+  },
+  "provenance": "derived",
+  "resources": [
+   "res_business_registry"
+  ],
+  "requirements": [
+   "REQ-R01"
+  ],
+  "constraints": [],
+  "input_output": {
+   "inputs": [
+    "contextual_business_entry_request"
+   ],
+   "outputs": [
+    "updated_business_entry_state"
+   ]
+  }
+ },
+ {
+  "service_id": "svc_data_storage",
+  "name": "Digital company/BO information storage",
+  "type": "derived_capability",
+  "source_mapping": {
+   "pillar": "P2",
+   "subcategory": "2.1.2"
+  },
+  "provenance": "derived",
+  "resources": [
+   "res_company_database",
+   "res_beneficial_owner_registry"
+  ],
+  "requirements": [
+   "REQ-R01",
+   "REQ-R02"
+  ],
+  "constraints": [],
+  "input_output": {
+   "inputs": [
+    "contextual_business_entry_request"
+   ],
+   "outputs": [
+    "updated_business_entry_state"
+   ]
+  }
+ },
+ {
+  "service_id": "svc_identity",
+  "name": "Electronic identity verification",
+  "type": "derived_capability",
+  "source_mapping": {
+   "pillar": "P2",
+   "subcategory": "2.1.3"
+  },
+  "provenance": "derived",
+  "resources": [
+   "res_identity_provider"
+  ],
+  "requirements": [
+   "REQ-R05"
+  ],
+  "constraints": [],
+  "input_output": {
+   "inputs": [
+    "contextual_business_entry_request"
+   ],
+   "outputs": [
+    "updated_business_entry_state"
+   ]
+  }
+ },
+ {
+  "service_id": "svc_exchange",
+  "name": "Inter-agency company information exchange",
+  "type": "derived_capability",
+  "source_mapping": {
+   "pillar": "P2",
+   "subcategory": "2.2.1"
+  },
+  "provenance": "derived",
+  "resources": [
+   "res_interagency_gateway"
+  ],
+  "requirements": [
+   "REQ-R07"
+  ],
+  "constraints": [],
+  "input_output": {
+   "inputs": [
+    "contextual_business_entry_request"
+   ],
+   "outputs": [
+    "updated_business_entry_state"
+   ]
+  }
+ },
+ {
+  "service_id": "svc_ubi",
+  "name": "Unique business identification",
+  "type": "derived_capability",
+  "source_mapping": {
+   "pillar": "P2",
+   "subcategory": "2.2.2"
+  },
+  "provenance": "derived",
+  "resources": [
+   "res_business_identifier"
+  ],
+  "requirements": [
+   "REQ-R07"
+  ],
+  "constraints": [],
+  "input_output": {
+   "inputs": [
+    "contextual_business_entry_request"
+   ],
+   "outputs": [
+    "updated_business_entry_state"
+   ]
+  }
+ },
+ {
+  "service_id": "svc_transparency",
+  "name": "Online business-entry information access",
+  "type": "derived_capability",
+  "source_mapping": {
+   "pillar": "P2",
+   "subcategory": "2.3.1"
+  },
+  "provenance": "derived",
+  "resources": [
+   "res_public_information_portal"
+  ],
+  "requirements": [
+   "REQ-R01"
+  ],
+  "constraints": [],
+  "input_output": {
+   "inputs": [
+    "contextual_business_entry_request"
+   ],
+   "outputs": [
+    "updated_business_entry_state"
+   ]
+  }
+ },
+ {
+  "service_id": "svc_company_info_public",
+  "name": "General company information publication",
+  "type": "derived_capability",
+  "source_mapping": {
+   "pillar": "P2",
+   "subcategory": "2.3.2"
+  },
+  "provenance": "derived",
+  "resources": [
+   "res_public_information_portal",
+   "res_company_database"
+  ],
+  "requirements": [
+   "REQ-R01"
+  ],
+  "constraints": [],
+  "input_output": {
+   "inputs": [
+    "contextual_business_entry_request"
+   ],
+   "outputs": [
+    "updated_business_entry_state"
+   ]
+  }
+ },
+ {
+  "service_id": "svc_statistics",
+  "name": "New-firm statistics publication",
+  "type": "derived_capability",
+  "source_mapping": {
+   "pillar": "P2",
+   "subcategory": "2.3.3"
+  },
+  "provenance": "derived",
+  "resources": [
+   "res_statistics_system"
+  ],
+  "requirements": [],
+  "constraints": [],
+  "input_output": {
+   "inputs": [
+    "contextual_business_entry_request"
+   ],
+   "outputs": [
+    "updated_business_entry_state"
+   ]
+  }
+ },
+ {
+  "service_id": "svc_domestic_efficiency",
+  "name": "Domestic registration completion",
+  "type": "derived_capability",
+  "source_mapping": {
+   "pillar": "P3",
+   "subcategory": "3.1"
+  },
+  "provenance": "derived",
+  "resources": [
+   "res_business_registry"
+  ],
+  "requirements": [
+   "REQ-R03"
+  ],
+  "constraints": [],
+  "input_output": {
+   "inputs": [
+    "contextual_business_entry_request"
+   ],
+   "outputs": [
+    "updated_business_entry_state"
+   ]
+  }
+ },
+ {
+  "service_id": "svc_foreign_efficiency",
+  "name": "Foreign registration completion",
+  "type": "derived_capability",
+  "source_mapping": {
+   "pillar": "P3",
+   "subcategory": "3.2"
+  },
+  "provenance": "derived",
+  "resources": [
+   "res_business_registry"
+  ],
+  "requirements": [
+   "REQ-R04"
+  ],
+  "constraints": [
+   "CST-01"
+  ],
+  "input_output": {
+   "inputs": [
+    "contextual_business_entry_request"
+   ],
+   "outputs": [
+    "updated_business_entry_state"
+   ]
+  }
+ }
+]

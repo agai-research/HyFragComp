@@ -1,0 +1,9 @@
+digraph G {
+rankdir=LR; fontname="Helvetica"; labelloc=t;
+label="goal hypergraph and alignment"; node [fontname="Helvetica", fontsize=10];
+g0 [shape=box, style="rounded,filled", fillcolor="#a9c9ee", label="g0: prepare the documentation file\nfor the long-stay residence\npermit in Morocco\n[new]"];
+g1 [shape=box, style="rounded,filled", fillcolor="#a9c9ee", label="g1: reserve my appointment for the\nlong-stay residence permit in\nMorocco and clear the charge\n[new]"];
+g2 [shape=box, style="rounded,filled", fillcolor="#a9c9ee", label="g2: hand in my long-stay residence\npermit application in Morocco\nand make sure of by <CHANNEL>\n[new]"];
+g0 -> g1;
+g1 -> g2;
+}

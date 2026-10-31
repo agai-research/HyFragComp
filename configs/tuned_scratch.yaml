@@ -1,0 +1,11 @@
+delta:
+  B_w: 3
+  K: 8
+  eta:
+    w_gain: 1.0
+    w_margin: 0.2
+    w_qos: 0.2
+    w_sim: 1.0
+  h: 2
+index:
+  ef_search: 32

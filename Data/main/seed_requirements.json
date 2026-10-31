@@ -1,0 +1,70 @@
+[
+ {
+  "requirement_id": "REQ-R01",
+  "name": "Valid company identity information",
+  "category": "information",
+  "applies_to": [
+   "domestic",
+   "foreign"
+  ],
+  "provenance": "derived"
+ },
+ {
+  "requirement_id": "REQ-R02",
+  "name": "Beneficial ownership information",
+  "category": "compliance",
+  "applies_to": [
+   "domestic",
+   "foreign"
+  ],
+  "provenance": "derived"
+ },
+ {
+  "requirement_id": "REQ-R03",
+  "name": "Registration eligibility",
+  "category": "eligibility",
+  "applies_to": [
+   "domestic"
+  ],
+  "provenance": "derived"
+ },
+ {
+  "requirement_id": "REQ-R04",
+  "name": "Foreign registration eligibility",
+  "category": "eligibility",
+  "applies_to": [
+   "foreign"
+  ],
+  "provenance": "derived"
+ },
+ {
+  "requirement_id": "REQ-R05",
+  "name": "Identity verification",
+  "category": "identity",
+  "applies_to": [
+   "domestic",
+   "foreign"
+  ],
+  "provenance": "derived"
+ },
+ {
+  "requirement_id": "REQ-R06",
+  "name": "Applicable licensing/environmental checks",
+  "category": "regulatory",
+  "applies_to": [
+   "domestic",
+   "foreign"
+  ],
+  "provenance": "derived"
+ },
+ {
+  "requirement_id": "REQ-R07",
+  "name": "Unique business identification",
+  "category": "identification",
+  "applies_to": [
+   "domestic",
+   "foreign"
+  ],
+  "provenance": "derived"
+ }
+]

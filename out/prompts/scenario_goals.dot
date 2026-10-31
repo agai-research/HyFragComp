@@ -1,0 +1,15 @@
+digraph G {
+rankdir=LR; fontname="Helvetica"; labelloc=t;
+label="goal hypergraph and alignment"; node [fontname="Helvetica", fontsize=10];
+g0 [shape=box, style="rounded,filled", fillcolor="#a9c9ee", label="g0: verify my renewal eligibility\nfor the long-stay residence\npermit in Morocco\n[new]"];
+g1 [shape=box, style="rounded,filled", fillcolor="#a9c9ee", label="g1: check my documents for the\nlong-stay residence permit in\nMorocco\n[new]"];
+g2 [shape=box, style="rounded,filled", fillcolor="#a9c9ee", label="g2: validate my proof of funds\nfrom the new employment\ncontract for the long-stay\n[new]"];
+g3 [shape=box, style="rounded,filled", fillcolor="#a9c9ee", label="g3: book the earliest priority\nappointment for the long-stay\nresidence permit in Morocco\n[new]"];
+g4 [shape=box, style="rounded,filled", fillcolor="#a9c9ee", label="g4: notify me by <CHANNEL> for the\nlong-stay residence permit in\nMorocco\n[new]"];
+e0 [shape=diamond, label="+", width=0.3, height=0.3];
+g0 -> e0;
+g1 -> e0;
+g2 -> e0;
+e0 -> g3;
+g3 -> g4;
+}

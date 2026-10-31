@@ -1,0 +1,16 @@
+{
+ "files": {
+  "tuned_cafc.yaml": "ddaef0f379fb565670784a5b362ae2d9fc4eaff15c3f34d1c93c4d5231fea07d",
+  "tuned_cbr.yaml": "62488d7bd3cb9845f14303ba759975d9629648c574925941adb23ed67bae2e55",
+  "tuned_nore.yaml": "f5c0ce060a59952ba8c179363b6bda050161bf411b905b381eef7daae6542835",
+  "tuned_ours.yaml": "9d615b341499ff3cf9fe5728571d573f42ccaa4f37f92747f6ed5515153a6e25",
+  "tuned_scratch.yaml": "7eecca02e4a0ba97698f55bc617129929d271d7a1da2fb610218f1a98af65d49",
+  "tuned_shared.yaml": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+  "tuned_whole.yaml": "31cb18c53309c1eb513b3d3b9210dedba3b92459cbcae4857b412dd8e42ab9bb"
+ },
+ "locked_at": "2026-10-11 14:35:53",
+ "seeds_tuning": [
+  100,
+  101
+ ]
+}

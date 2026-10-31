@@ -1,0 +1,32 @@
+{
+ "ent": [
+  "svc_identity"
+ ],
+ "elig_f": [
+  "svc_domestic_rules"
+ ],
+ "elig_r": [
+  "svc_domestic_rules"
+ ],
+ "docs": [
+  "svc_company_info",
+  "svc_shareholder_info",
+  "svc_bo_filing"
+ ],
+ "fee": [
+  "svc_simplified_registration"
+ ],
+ "extra_a": [
+  "svc_risk_license"
+ ],
+ "appt_s": [
+  "svc_exchange"
+ ],
+ "appt_p": [
+  "svc_exchange"
+ ],
+ "sub": [
+  "svc_ubi",
+  "svc_domestic_efficiency"
+ ]
+}

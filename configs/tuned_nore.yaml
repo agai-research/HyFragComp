@@ -1,0 +1,11 @@
+delta:
+  B_w: 3
+  K: 8
+  eps_max: 2
+match:
+  lambdas:
+  - 0.34
+  - 0.33
+  - 0.33
+  rho_min: 0.6
+  theta_m: 0.8

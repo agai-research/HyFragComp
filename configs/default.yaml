@@ -1,0 +1,144 @@
+seed: 0
+runs: 5
+profile: full
+paths:
+  cache: results/cache
+match:
+  theta_m: 0.75
+  rho_min: 0.5
+  K_a: 10
+  lambdas: [0.5, 0.3, 0.2]
+memory:
+  k: 3
+  k_u: 3
+  R_max: 6
+  W_s: 1000
+  tau_e: 7
+  capacity: 4000
+  sketch_width: 4096
+  sketch_depth: 4
+  u_eager_pct: 0.75
+  lambda_ewma: 0.3
+  c_cmp_unit: 1.0
+  c_reu_unit: 0.2
+  c_rev_unit: 0.35
+  shared_ttl: 60
+delta:
+  h: 2
+  B_w: 5
+  eps_max: 3
+  K: 12
+  theta_sim: 0.2
+  eta: {w_gain: 1.0, w_sim: 0.6, w_qos: 0.15, w_margin: 0.1}
+encoder:
+  d_sem: 96
+  d: 96
+  L: 2
+  d_out: 96
+  alpha: 0.5
+  steps: 500
+  procs_per_step: 16
+  mask_rate: 0.2
+  val_jurs: 3
+  batch: 96
+  lr: 0.002
+  temp: 0.2
+  train_jurs: 3
+index:
+  M: 12
+  ef_construction: 64
+  ef_search: 48
+  over_fetch: 4
+planner:
+  theta_plan: 0.40
+  w_lex: 0.45
+  p_unseen: 0.25
+  sem_only: 0.88
+llm:
+  backend: rule                 # rule | openai | shadow (see hfc/llm.py)
+  latency: {fixed_ms: 250.0, prefill_tok_s: 2500.0, decode_tok_s: 45.0}   # rule backend; refit with Exp/calibrate.py
+  api:                          # openai and shadow backends (key: environment variable OPENAI_API_KEY)
+    model: gpt-5.6-luna
+    base_url: https://api.openai.com/v1
+    timeout_s: 60
+    max_retries: 4
+    max_output_tokens: 1024
+    cache: true                 # results/llm_cache: identical prompts return the recorded answer and latency
+  decoding:
+    c_cur: {temperature: 0.0}
+    c_int: {temperature: 0.0}
+    c_pln: {temperature: 0.0}
+    c_ret: {temperature: 0.0}
+    c_sel: {temperature: 0.0}
+    c_com: {temperature: 0.0}
+    c_ver: {temperature: 0.0}
+    c_exp: {temperature: 0.0}
+privacy:
+  pad_latency: false            # pad memory lookups (recall, re-validation) to pad_ms, Sec. 5.7 (d)
+  pad_ms: 5.0
+  pad_sleep: false              # true in deployment (actually wait); false in experiments (account only)
+  hide_scope_rejections: false  # omit V5 (scope) rejections from explanations returned to requesters
+cbr:
+  sim_threshold: 0.8
+  top_semantic: 20
+  ahp_matrix: [[1, 3, 5, 7], [0.3333333333, 1, 2, 5], [0.2, 0.5, 1, 3], [0.1428571429, 0.2, 0.3333333333, 1]]
+  simhash_bits: 64
+  simhash_shingle: 2
+  ahp_ri: 0.90
+  ahp_cr_max: 0.1
+  min_token_len: 2
+  drop_stop_words: true
+  mcs_max_nodes: 64
+  mcs_budget: 200000
+  mcs_drop_order: [ctx, qual, slot, feature, concept]
+  kg_links: 8
+  ontology_layers: [concept, feature, mechanism, property]
+  rebind_slots: true
+cafc:
+  max_states: 60000
+  active: 300
+repo:
+  default_size: 1000
+streams:
+  test: 300
+  n_tpl: 120
+  hist_frac: 0.6
+  zipf_proc: 1.1
+  zipf_eco: 1.1
+  zipf_user: 1.0
+  users: 60
+  sizes: [3, 4, 5, 6, 8, 9, 12]
+  size_w: [3, 3, 3, 2, 2, 1, 1]
+  q_renew: 0.4
+  q_prio: 0.25
+  mix: {same: 0.55, prio_flip: 0.10, qual_flip: 0.05, extend: 0.15, subset: 0.05, new: 0.10}
+  unseen_p: 0.25
+  trap_p: 0.5
+  fill_max: 2
+  rate: 10
+  t_start: 6.0
+  stale_default: 0.10
+  ev_mix: [0.35, 0.15, 0.50]
+  p_bridge: 1.0
+  subst_frac: 0.05
+  distractors: 1
+experiments:
+  # e1 Fig. 4, e5 Fig. 5, e7 Fig. 6, e6 Fig. 7; x1-x3 additional experiments (RQ2, RQ3, RQ5). Seeds are 0..runs-1.
+  full:
+    runs: 5
+    e1: {n_req: 200, xs: [0, 10, 25, 50, 75]}
+    e5: {n_req: 10000, xs: [100, 500, 1000, 5000, 10000], window: 100, n_tpl: 400}
+    e6: {n: 20, xs: [3, 5, 8, 12, 18], size: 5000}
+    e7: {n_req: 100, xs: [100, 500, 1000, 5000, 10000, 20000]}
+    x1: {n_req: 200, n_req_size: 100, xs: [100, 500, 1000, 5000, 10000, 20000]}
+    x2: {n_req: 10000, xs: [100, 500, 1000, 5000, 10000], window: 100, n_tpl: 400, runs: 3}
+    x3: {n_leak: 600, nv: [0, 1, 2, 3, 5], trials: 30, n_fid: 200, xs: [0, 10, 25, 50, 75]}
+  smoke:
+    runs: 1
+    e1: {n_req: 30, xs: [0, 25, 75]}
+    e5: {n_req: 600, xs: [20, 60, 100, 300, 600], window: 20, n_tpl: 60}
+    e6: {n: 3, xs: [3, 5, 8], size: 1000}
+    e7: {n_req: 20, xs: [100, 200, 500, 1000]}
+    x1: {n_req: 30, n_req_size: 20, xs: [100, 500, 1000]}
+    x2: {n_req: 600, xs: [20, 60, 100, 300, 600], window: 20, n_tpl: 60}
+    x3: {n_leak: 60, nv: [0, 1, 3], trials: 4, n_fid: 30, xs: [0, 75]}

@@ -1,0 +1,479 @@
+[
+ {
+  "fragment_id": "F01",
+  "name": "Company identity preparation",
+  "kind": "atomic",
+  "members": [
+   "svc_name_approval",
+   "svc_company_info",
+   "svc_shareholder_info"
+  ],
+  "provenance": "derived",
+  "retrieval_tags": [
+   "company",
+   "identity",
+   "preparation"
+  ],
+  "reuse_scope": [
+   "business_entry"
+  ],
+  "validity": {
+   "start": "2024-01-01",
+   "end": "2025-12-31",
+   "revision": 1
+  },
+  "verification_constraints": [
+   "CST-02",
+   "CST-05"
+  ],
+  "substitutable_with": []
+ },
+ {
+  "fragment_id": "F02",
+  "name": "Beneficial ownership compliance",
+  "kind": "atomic",
+  "members": [
+   "svc_bo_filing"
+  ],
+  "provenance": "derived",
+  "retrieval_tags": [
+   "beneficial",
+   "ownership",
+   "compliance"
+  ],
+  "reuse_scope": [
+   "business_entry"
+  ],
+  "validity": {
+   "start": "2024-01-01",
+   "end": "2025-12-31",
+   "revision": 1
+  },
+  "verification_constraints": [
+   "CST-02",
+   "CST-05"
+  ],
+  "substitutable_with": []
+ },
+ {
+  "fragment_id": "F03",
+  "name": "Simplified domestic registration",
+  "kind": "atomic",
+  "members": [
+   "svc_simplified_registration",
+   "svc_domestic_rules"
+  ],
+  "provenance": "derived",
+  "retrieval_tags": [
+   "simplified",
+   "domestic",
+   "registration"
+  ],
+  "reuse_scope": [
+   "business_entry"
+  ],
+  "validity": {
+   "start": "2024-01-01",
+   "end": "2025-12-31",
+   "revision": 1
+  },
+  "verification_constraints": [
+   "CST-02",
+   "CST-05"
+  ],
+  "substitutable_with": [
+   "F03",
+   "F04"
+  ]
+ },
+ {
+  "fragment_id": "F04",
+  "name": "Risk and licensing assessment",
+  "kind": "atomic",
+  "members": [
+   "svc_risk_license"
+  ],
+  "provenance": "derived",
+  "retrieval_tags": [
+   "risk",
+   "and",
+   "licensing",
+   "assessment"
+  ],
+  "reuse_scope": [
+   "business_entry"
+  ],
+  "validity": {
+   "start": "2024-01-01",
+   "end": "2025-12-31",
+   "revision": 1
+  },
+  "verification_constraints": [
+   "CST-02",
+   "CST-05"
+  ],
+  "substitutable_with": [
+   "F03",
+   "F04"
+  ]
+ },
+ {
+  "fragment_id": "F05",
+  "name": "Foreign eligibility assessment",
+  "kind": "atomic",
+  "members": [
+   "svc_foreign_rules"
+  ],
+  "provenance": "derived",
+  "retrieval_tags": [
+   "foreign",
+   "eligibility",
+   "assessment"
+  ],
+  "reuse_scope": [
+   "business_entry"
+  ],
+  "validity": {
+   "start": "2024-01-01",
+   "end": "2025-12-31",
+   "revision": 1
+  },
+  "verification_constraints": [
+   "CST-02",
+   "CST-05"
+  ],
+  "substitutable_with": []
+ },
+ {
+  "fragment_id": "F06",
+  "name": "Digital start-up",
+  "kind": "atomic",
+  "members": [
+   "svc_digital_startup",
+   "svc_identity"
+  ],
+  "provenance": "derived",
+  "retrieval_tags": [
+   "digital",
+   "start",
+   "up"
+  ],
+  "reuse_scope": [
+   "business_entry"
+  ],
+  "validity": {
+   "start": "2024-01-01",
+   "end": "2025-12-31",
+   "revision": 1
+  },
+  "verification_constraints": [
+   "CST-02",
+   "CST-05"
+  ],
+  "substitutable_with": []
+ },
+ {
+  "fragment_id": "F07",
+  "name": "Digital registry storage",
+  "kind": "atomic",
+  "members": [
+   "svc_data_storage"
+  ],
+  "provenance": "derived",
+  "retrieval_tags": [
+   "digital",
+   "registry",
+   "storage"
+  ],
+  "reuse_scope": [
+   "business_entry"
+  ],
+  "validity": {
+   "start": "2024-01-01",
+   "end": "2025-12-31",
+   "revision": 1
+  },
+  "verification_constraints": [
+   "CST-02",
+   "CST-05"
+  ],
+  "substitutable_with": []
+ },
+ {
+  "fragment_id": "F08",
+  "name": "Inter-agency interoperability",
+  "kind": "atomic",
+  "members": [
+   "svc_exchange",
+   "svc_ubi"
+  ],
+  "provenance": "derived",
+  "retrieval_tags": [
+   "inter",
+   "agency",
+   "interoperability"
+  ],
+  "reuse_scope": [
+   "business_entry"
+  ],
+  "validity": {
+   "start": "2024-01-01",
+   "end": "2025-12-31",
+   "revision": 1
+  },
+  "verification_constraints": [
+   "CST-02",
+   "CST-05"
+  ],
+  "substitutable_with": []
+ },
+ {
+  "fragment_id": "F09",
+  "name": "Transparency and public information",
+  "kind": "atomic",
+  "members": [
+   "svc_transparency",
+   "svc_company_info_public",
+   "svc_statistics"
+  ],
+  "provenance": "derived",
+  "retrieval_tags": [
+   "transparency",
+   "and",
+   "public",
+   "information"
+  ],
+  "reuse_scope": [
+   "business_entry"
+  ],
+  "validity": {
+   "start": "2024-01-01",
+   "end": "2025-12-31",
+   "revision": 1
+  },
+  "verification_constraints": [
+   "CST-02",
+   "CST-05"
+  ],
+  "substitutable_with": []
+ },
+ {
+  "fragment_id": "F10",
+  "name": "Domestic registration completion",
+  "kind": "atomic",
+  "members": [
+   "svc_domestic_efficiency"
+  ],
+  "provenance": "derived",
+  "retrieval_tags": [
+   "domestic",
+   "registration",
+   "completion"
+  ],
+  "reuse_scope": [
+   "business_entry"
+  ],
+  "validity": {
+   "start": "2024-01-01",
+   "end": "2025-12-31",
+   "revision": 1
+  },
+  "verification_constraints": [
+   "CST-02",
+   "CST-05"
+  ],
+  "substitutable_with": []
+ },
+ {
+  "fragment_id": "F11",
+  "name": "Foreign registration completion",
+  "kind": "atomic",
+  "members": [
+   "svc_foreign_efficiency"
+  ],
+  "provenance": "derived",
+  "retrieval_tags": [
+   "foreign",
+   "registration",
+   "completion"
+  ],
+  "reuse_scope": [
+   "business_entry"
+  ],
+  "validity": {
+   "start": "2024-01-01",
+   "end": "2025-12-31",
+   "revision": 1
+  },
+  "verification_constraints": [
+   "CST-02",
+   "CST-05"
+  ],
+  "substitutable_with": []
+ },
+ {
+  "fragment_id": "C01",
+  "name": "Domestic business entry",
+  "kind": "composite",
+  "members": [
+   "F01",
+   "F02",
+   "F03",
+   "F04",
+   "F06",
+   "F07",
+   "F08",
+   "F09",
+   "F10"
+  ],
+  "provenance": "derived",
+  "retrieval_tags": [
+   "domestic",
+   "business",
+   "entry"
+  ],
+  "reuse_scope": [
+   "business_entry"
+  ],
+  "validity": {
+   "start": "2024-01-01",
+   "end": "2025-12-31",
+   "revision": 1
+  },
+  "verification_constraints": [
+   "CST-02",
+   "CST-05"
+  ],
+  "substitutable_with": []
+ },
+ {
+  "fragment_id": "C02",
+  "name": "Foreign business entry",
+  "kind": "composite",
+  "members": [
+   "F01",
+   "F02",
+   "F04",
+   "F05",
+   "F06",
+   "F07",
+   "F08",
+   "F09",
+   "F11"
+  ],
+  "provenance": "derived",
+  "retrieval_tags": [
+   "foreign",
+   "business",
+   "entry"
+  ],
+  "reuse_scope": [
+   "business_entry"
+  ],
+  "validity": {
+   "start": "2024-01-01",
+   "end": "2025-12-31",
+   "revision": 1
+  },
+  "verification_constraints": [
+   "CST-02",
+   "CST-05"
+  ],
+  "substitutable_with": []
+ },
+ {
+  "fragment_id": "C03",
+  "name": "Digital business-entry support",
+  "kind": "composite",
+  "members": [
+   "F06",
+   "F07",
+   "F08",
+   "F09"
+  ],
+  "provenance": "derived",
+  "retrieval_tags": [
+   "digital",
+   "business",
+   "entry",
+   "support"
+  ],
+  "reuse_scope": [
+   "business_entry"
+  ],
+  "validity": {
+   "start": "2024-01-01",
+   "end": "2025-12-31",
+   "revision": 1
+  },
+  "verification_constraints": [
+   "CST-02",
+   "CST-05"
+  ],
+  "substitutable_with": []
+ },
+ {
+  "fragment_id": "C04",
+  "name": "Compliance-heavy entry",
+  "kind": "composite",
+  "members": [
+   "F01",
+   "F02",
+   "F04",
+   "F06",
+   "F07",
+   "F08"
+  ],
+  "provenance": "derived",
+  "retrieval_tags": [
+   "compliance",
+   "heavy",
+   "entry"
+  ],
+  "reuse_scope": [
+   "business_entry"
+  ],
+  "validity": {
+   "start": "2024-01-01",
+   "end": "2025-12-31",
+   "revision": 1
+  },
+  "verification_constraints": [
+   "CST-02",
+   "CST-05"
+  ],
+  "substitutable_with": []
+ },
+ {
+  "fragment_id": "C05",
+  "name": "Reusable registration core",
+  "kind": "composite",
+  "members": [
+   "F01",
+   "F02",
+   "F04",
+   "F06",
+   "F07",
+   "F08"
+  ],
+  "provenance": "derived",
+  "retrieval_tags": [
+   "reusable",
+   "registration",
+   "core"
+  ],
+  "reuse_scope": [
+   "business_entry"
+  ],
+  "validity": {
+   "start": "2024-01-01",
+   "end": "2025-12-31",
+   "revision": 1
+  },
+  "verification_constraints": [
+   "CST-02",
+   "CST-05"
+  ],
+  "substitutable_with": []
+ }
+]

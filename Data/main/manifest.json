@@ -1,0 +1,29 @@
+{
+ "economies": 50,
+ "procedures": 3250,
+ "hot_procedures": 110,
+ "fragments": 29300,
+ "hyperedges": 52400,
+ "edges_by_pattern": {
+  "seq": 6500,
+  "and": 22750,
+  "xor": 22750,
+  "loop": 400
+ },
+ "checksums": {
+  "economies.json": "06ed6c804fa34ad9027b91d441425ead2328baaab64d5e543e4923aa34fc4e6a",
+  "fragments.json": "867aa75179589124d0db9880891481eb77684dfd3fccd1bfbbc83573cb845f24",
+  "hyperedges.json": "f2ae0ba7cc38480b0fe26ba3d2182bc54c61235943e59e9d8f2defd0ba075b93",
+  "lexicon.json": "6db18494a4a0fb67ebec21f48bf0b8a6c7d39dd66e8d7ff794f97b18cb97ab00",
+  "manifest.json": "b202cb42893cee795b2129da00a560d3e37358918fa7df5a63bcb33b89a1738e",
+  "ontology.json": "3e836bc2459216ae3357370939c957a9d5cc563a77cd8d9b34a834dac786b62e",
+  "procedures.json": "73742f46bc53b3a59765c361652addca448bbb28767bf7cd0e815ff87d5c0efe",
+  "scenario_map.json": "2453be7e53162ab866225b22f603e8f780cdbe264b1dbd2b6660550a407b6ecc",
+  "seed_constraints.json": "9d2cec45a5db319b9461cf253fef42f34ffb684be49cf2b86d7090e0285aae17",
+  "seed_fragments.json": "07ed5a7fec4fe7bc24dddbeb9d24358e068343bf2d82459095088d42b1d74e11",
+  "seed_requirements.json": "499e854a9be35b03a3310fe9e692a9d1ee5c9b0e8cb485d0a7806891befb0fca",
+  "seed_resources.json": "3f0cc32768738a772088457d205344a647058aed960a812c92803b98e6e4b80f",
+  "seed_service_links.json": "9687823f55e7e5f56fc009b60ec73ef2a458898e36634cf8618867eadb2d7126",
+  "seed_services.json": "94b6fa9de81dc0be7c6f32009f3fc9336ea95de7dbc6751a4c4245862d19f5ce"
+ }
+}

@@ -1,0 +1,28 @@
+digraph W {
+rankdir=LR; fontname="Helvetica"; labelloc=t; nodesep=0.35; ranksep=0.5;
+label="light_unseen (scratch, rho=0.00)"; node [fontname="Helvetica", fontsize=10]; edge [fontname="Helvetica", fontsize=9];
+start [shape=circle, label="", width=0.3, style=filled, fillcolor="#ffffff", penwidth=2];
+end [shape=doublecircle, label="", width=0.3, style=filled, fillcolor="#ffffff", penwidth=3];
+"MAR.ent" [shape=box, style="rounded,filled", fillcolor="#dddddd", label="ent\nIdentity check and dossier\nopening at the Morocco\nadministration"];
+"MAR.longstay.docs" [shape=box, style="rounded,filled", fillcolor="#a9c9ee", label="longstay.docs\nDocument collection and\nverification for a long-\nstay residence permit in"];
+"MAR.longstay.fee" [shape=box, style="rounded,filled", fillcolor="#a9c9ee", label="longstay.fee\nFee payment and receipt\nfor a long-stay residence\npermit in Morocco"];
+"MAR.longstay.appt_s" [shape=box, style="rounded,filled", fillcolor="#a9c9ee", label="longstay.appt_s\nStandard appointment\nbooking for a long-stay\nresidence permit in"];
+"MAR.longstay.sub" [shape=box, style="rounded,filled", fillcolor="#a9c9ee", label="longstay.sub\nSubmission of the long-\nstay residence permit\napplication and applicant"];
+s1 [shape=diamond, label="+", width=0.35, height=0.35, fontsize=16, style=filled, fillcolor="white"];
+"MAR.ent" -> s1;
+s1 -> "MAR.longstay.docs";
+s1 -> "MAR.longstay.fee";
+j2 [shape=diamond, label="+", width=0.35, height=0.35, fontsize=16, style=filled, fillcolor="white"];
+"MAR.longstay.docs" -> j2;
+"MAR.longstay.fee" -> j2;
+j2 -> "MAR.longstay.appt_s" [label="priority_status"];
+"MAR.longstay.appt_s" -> "MAR.longstay.sub" [];
+start -> "MAR.ent";
+"MAR.longstay.sub" -> end;
+subgraph cluster_leg { label="legend"; fontsize=9; style=dashed;
+leg0 [shape=box, style="rounded,filled", fillcolor="#b7e1b0", label="reused", fontsize=9];
+leg1 [shape=box, style="rounded,filled", fillcolor="#f9c784", label="switched variant", fontsize=9];
+leg2 [shape=box, style="rounded,filled", fillcolor="#a9c9ee", label="newly composed", fontsize=9];
+leg3 [shape=box, style="rounded,filled", fillcolor="#dddddd", label="entry", fontsize=9];
+}
+}

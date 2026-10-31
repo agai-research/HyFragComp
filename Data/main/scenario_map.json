@@ -1,0 +1,18 @@
+{
+ "F1": "MAR.ent",
+ "F2": "MAR.longstay.elig_f",
+ "F2r": "MAR.longstay.elig_r",
+ "F3": "MAR.longstay.docs",
+ "F4": "MAR.longstay.fee",
+ "F5": "MAR.longstay.appt_s",
+ "F7": "MAR.longstay.appt_p",
+ "F6": "MAR.longstay.sub",
+ "F16": "MAR.longstay.extra_a",
+ "F17": "MAR.longstay.extra_b",
+ "e1": "MAR.longstay.e1.Sf",
+ "e2": "MAR.longstay.e2.Sf",
+ "e3": "MAR.longstay.e3",
+ "e4": "MAR.longstay.e4",
+ "company_lane": "MAR.llc",
+ "note": "reference scenario of the paper instantiated on the Morocco jurisdiction"
+}
