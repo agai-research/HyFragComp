@@ -1,11 +1,5 @@
-"""One underlying language model specialised by role configurations.
-
-Backends (llm.backend in configs/default.yaml):
-  rule    deterministic rule-and-embedding engine; latency is computed from token counts with llm.latency
-  openai  every role is answered by the hosted model (GPT-5.6 Luna by default); latency and tokens are measured
-  shadow  the rule engine decides, and every call is also sent to the hosted model; both answers, the measured
-          latency and the tokens are logged to results/logs/shadow.jsonl (calibration, Exp/calibrate.py)
-In all backends, the number of calls is the number of role invocations decided by the pipeline.
+"""
+One underlying language model specialised by role configurations.
 """
 import json
 import re
