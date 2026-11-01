@@ -6,8 +6,6 @@
   python Exp/calibrate.py analyze  reads the logs and writes results/calibration/report.{json,md} and
                                    configs/latency_fitted.yaml (latency model fitted on the measured calls)
 
-Workload (configurable): the protocol of Fig. 4 at staleness 0% and 75% (--n requests each) and the first
---growth requests of the repository-growth stream, all with seed 0.
 """
 import argparse
 import json
