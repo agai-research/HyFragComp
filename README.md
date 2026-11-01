@@ -14,13 +14,7 @@ A request is abstracted into a template and decomposed into typed sub-goals. Sto
 
 The eight LLM roles (`c_cur`, `c_int`, `c_pln`, `c_ret`, `c_sel`, `c_com`, `c_ver`, `c_exp`) share one interface. `llm.backend` in `configs/default.yaml` selects how they are answered:
 
-| Backend | Who answers the roles | LLM latency and tokens | Use |
-|---|---|---|---|
-| `rule` (default) | deterministic rule-and-embedding engine with the same typed outputs | computed from token counts with `llm.latency` | all experiments |
-| `openai` | hosted model `llm.api.model` (GPT-5.6 Luna by default) | measured, logged to `results/logs/llm_calls.jsonl` | deployment, calibration |
-| `shadow` | rule engine; every call is also sent to the hosted model | both logged to `results/logs/shadow.jsonl` | calibration |
-
-The hosted backends read the API key from `OPENAI_API_KEY` and cache responses in `results/llm_cache`, so a rerun returns the recorded answers and latencies.
+The hosted backends, `llm.api.model` (GPT-5.6 Luna), read the API key from `OPENAI_API_KEY` and cache responses in `results/llm_cache`, so a rerun returns the recorded answers and latencies.
 
 In every backend, the number of LLM calls is the number of role invocations decided by the pipeline, counted per role. The deterministic stages (retrieval, alignment, re-validation, verification) are always measured on the machine (`compute_ms`). With the `rule` backend, reported latencies are labelled *analytic*. `Exp/calibrate.py` compares the backends and fits `llm.latency` on measured calls (see `REPRODUCE.md`).
 
@@ -50,8 +44,6 @@ python main-exp.py --exp e1 --only figures          # re-draw from stored result
 # Calibration against the hosted model (needs OPENAI_API_KEY)
 python Exp/calibrate.py run && python Exp/calibrate.py analyze
 ```
-
-Series: `e1` (Fig. 4, re-validation under staleness), `e5` (Fig. 5, repository growth), `e7` (Fig. 6, scalability), `e6` (Fig. 7, latency by stage), and `x1`-`x3` (matching quality, memory quality, privacy and explainability). `REPRODUCE.md` gives the protocol, run time and output files of each series. `DATA.md` describes the datasets and the workload generators.
 
 ## Configuration
 
