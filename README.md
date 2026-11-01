@@ -49,16 +49,6 @@ python Exp/calibrate.py run && python Exp/calibrate.py analyze
 
 Every parameter is in `configs/default.yaml`:
 
-- matching: `theta_m`, `rho_min`, `K_a`, `lambdas`;
-- memory: `k`, `k_u`, `R_max`, `W_s`, `tau_e`, `u_eager_pct`, sketch size and cost units;
-- recomposition: `h`, `B_w`, `eps_max`, `K`, `theta_sim`, `eta`;
-- encoder: `alpha`, `L`, dimensions and training;
-- index: `M`, `ef_construction`, `ef_search`;
-- planner thresholds;
-- LLM backend, latency model and API;
-- privacy: `pad_latency`, `pad_ms`, `pad_sleep`, `hide_scope_rejections`;
-- baseline settings, stream generators, and the sweep values of each series under `experiments.smoke` and `experiments.full`.
-
 The experiments load, for each method, the locked tuned overrides `configs/tuned_shared.yaml` and `configs/tuned_<method>.yaml` (hashes in `configs/tuned.lock.json`); `main-exp.py --no-tuned` uses the defaults only. `HyFragComp.py --config <file> ...` applies override files placed in `configs/`.
 
 ## Reproducibility
