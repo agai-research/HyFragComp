@@ -1,51 +1,82 @@
 # HyFragComp
 
-HyFragComp is a reuse layer for LLM-composed workflows over a fragment hypergraph, built for smart governance (public-service procedures such as residence permits, company registration or licences). A request is decomposed into typed sub-goals; stored composition records are aligned to the sub-goals, re-validated against the current repository and context (V1-V5, variant switch), and only the difference is recomposed by an anchored beam search over the hypergraph (GraphRAG). Frequent regions are promoted to composite fragments, and repository changes invalidate only the records that depend on them.
+HyFragComp is a reuse layer for LLM-composed service workflows over a **fragment hypergraph**, built for smart-governance procedures (residence permits, company registration, licences). Instead of recomposing a workflow for every request, it keeps fragments and past compositions in the hypergraph and reuses whatever can still be justified.
 
-![approach](docs/approach.png)
+## Approach
 
-## Contents
+For an incoming request:
 
-| Path | Role |
-|---|---|
-| `HyFragComp.py` | run the prototype on a request (`--text`, `--prompts`, `--selftest`) |
-| `hypergraph.py` | build the fragment hypergraph from the dataset and print its statistics |
-| `main-exp.py` | build instances and run experiment series e1-e11 |
-| `hfc/` | prototype package: roles (`llm.py`), encoders (`emb.py`, `enc.py`, `allset.py`), HNSW (`index.py`), checks (`chk.py`), alignment and re-validation (`reuse.py`), delta recomposition (`delta.py`), memory and promotion (`mem.py`, `promo.py`), invalidation (`inval.py`), explanation (`explain.py`), drawing (`viz.py`) |
-| `Baselines/` | `cbr` (Lu et al.) and `cafc` (Bucchiarone et al.); `scratch`, `whole`, `nore` are in `hfc/methods.py` and `hfc/system.py` |
-| `Data/` | dataset build scripts, `main/` (50 economies, 3,250 procedures, 29,300 fragments, 52,400 hyperedges), `instances/` per experiment |
-| `Exp/` | `e1.py` ... `e11.py`, `oracle.py`, `tune.py`, `plots.py`, `stats.py`, `core.py` |
-| `Test/` | `first_test.py`, `test_units.py`, `test_nn.py`, `static_check.py` |
-| `configs/` | `default.yaml` (all parameters), tuned override files after `Exp/tune.py` |
-| `Prompts/prompts.json` | test requests (scenario, first application, unseen phrasing, terse, trap sentence) |
-| `results/` | `raw/`, `agg/`, `figs/`, `tables/`, `logs/`, `tuning/` |
-| `docs/` | `Implementation.tex`, `Results.tex`, `Dataset.tex/.docx`, `implementation report.docx`, figures |
-| `notebooks/` | Colab notebooks; `python notebooks/run_nb.py notebooks/00_quickstart.ipynb` runs one without Jupyter |
+1. **Decompose** the request into typed sub-goals.
+2. **Align** stored composition records to the sub-goals.
+3. **Re-validate** the aligned records against the current repository and request context (checks V1–V5; a *variant switch* replaces a fragment by a compatible sibling variant when a check fails).
+4. **Recompose only the difference** with an anchored beam search over the hypergraph (graph-grounded retrieval), starting from the still-valid part of the record.
+5. **Promote** frequently reused regions to composite fragments.
+6. On repository change, **invalidate only the records that depend on the changed fragments**.
 
-## Environment
+Eight LLM roles drive the pipeline through one interface: `c_cur` (curation), `c_int` (interpretation), `c_pln` (planning), `c_ret` (retrieval), `c_sel` (selection), `c_com` (composition), `c_ver` (verification), `c_exp` (explanation).
 
-Python 3.10+ on CPU; `pip install -r requirements.txt`. Details in `environment.md`. Everything runs on NumPy, SciPy and scikit-learn: the autograd engine, AllSet encoder, HNSW index and the sentence encoder are implemented in this repository. The eight LLM roles (`c_cur`, `c_int`, `c_pln`, `c_ret`, `c_sel`, `c_com`, `c_ver`, `c_exp`) run on a local rule-and-embedding engine (`llm.backend: rule`). LLM latency and tokens are priced analytically (`llm.latency`); measures that depend on them are labelled *analytic* in the results.
+## Implementation
+
+- Python 3.10+, CPU only. Dependencies: NumPy, SciPy, scikit-learn (`pip install -r requirements.txt`). Platform notes in `environment.md`.
+- To stay light and offline, the autograd engine, the AllSet hypergraph encoder, the HNSW index and the sentence encoder are implemented in this repository.
+- The LLM roles run by default on a local rule-and-embedding engine (`llm.backend: rule`). LLM latency and tokens are then priced analytically (`llm.latency`); measures that depend on them are labelled *analytic* in the results.
+- The hypergraph in `Data/main` is seeded from World Bank B-READY procedure data.
+
+```
+HyFragComp.py   entry point (self-test, batch prompts, single request)
+hypergraph.py   build / rebuild Data/main
+main-exp.py     experiment driver (e1–e11)
+Exp/tune.py     hyper-parameter tuning
+configs/        default.yaml, tuned_*.yaml
+Prompts/        prompts.json
+Test/           scenario test, unit tests, static check
+results/        ckpt, cache, raw, agg, figs, tables, logs
+```
 
 ## Run
 
+Run from the repository root.
+
 ```bash
-python HyFragComp.py --selftest                    # calls the eight roles
-python HyFragComp.py --prompts --out out/prompts   # serves Prompts/prompts.json, writes JSON, Markdown, BPMN-style figures
-python HyFragComp.py --text "..." --jur MAR --renew --priority
-python Test/first_test.py                          # scenario, rejections, variant switch, change events
-python -m unittest Test.test_units Test.test_nn    # unit tests
-python Test/static_check.py                        # static scan
-python hypergraph.py --rebuild                     # rebuild Data/main from the B-READY seed
-python Exp/tune.py --trials 24                     # tuning on the validation split, writes configs/tuned_*.yaml
-python main-exp.py --exp e1 e2 e3 e4 e5 e6 e7 e8 e9 e10 e11 --runs 5 --profile full
-python main-exp.py --exp e1 --profile smoke        # one-minute check
-python main-exp.py --exp e1 --only figures         # re-draw from stored results
+python HyFragComp.py --selftest                     # calls the eight roles once
+python HyFragComp.py --prompts --out out/prompts    # reads Prompts/prompts.json; writes JSON, Markdown, BPMN-style figures
+python HyFragComp.py --text "..." --jur MAR --renew --priority   # single request
+python Test/first_test.py                           # scenario: reuse, rejections, variant switch, change events
+python -m unittest Test.test_units Test.test_nn     # unit tests
+python Test/static_check.py                         # static scan
+python hypergraph.py --rebuild                      # rebuild Data/main from the B-READY seed
 ```
+
+## Experiments
+
+```bash
+python Exp/tune.py --trials 24                      # tuning on the validation split → configs/tuned_*.yaml
+python main-exp.py --exp e1 e2 e3 e4 e5 e6 e7 e8 e9 e10 e11 --runs 5 --profile full
+python main-exp.py --exp e1 --profile smoke         # reduced sweep, about one minute
+python main-exp.py --exp e1 --only figures          # redraw figures and tables from stored results
+```
+
+`smoke` and `full` sweep values are set per experiment under `experiments.smoke` / `experiments.full`.
 
 ## Configuration
 
-Every parameter is in `configs/default.yaml`: matching (`theta_m`, `rho_min`, `K_a`, `lambdas`), memory (`k`, `k_u`, `R_max`, `W_s`, `tau_e`, `u_eager_pct`, cost units), recomposition (`h`, `B_w`, `eps_max`, `K`, `theta_sim`, `eta`), encoder (`alpha`, `L`, dimensions, training), index (`M`, `ef_construction`, `ef_search`), planner thresholds, LLM latency model, privacy, baseline settings, stream generators and the sweep values of each experiment under `experiments.smoke` / `experiments.full`. Override files are passed with `--config` or placed in `configs/` (`tuned_*.yaml`).
+All parameters are in `configs/default.yaml`; overrides are passed with `--config` or placed in `configs/` as `tuned_*.yaml`.
+
+| Group | Keys |
+|---|---|
+| matching | `theta_m`, `rho_min`, `K_a`, `lambdas` |
+| memory | `k`, `k_u`, `R_max`, `W_s`, `tau_e`, `u_eager_pct`, cost units |
+| recomposition | `h`, `B_w`, `eps_max`, `K`, `theta_sim`, `eta` |
+| encoder | `alpha`, `L`, dimensions, training |
+| index | `M`, `ef_construction`, `ef_search` |
+| other | planner thresholds, `llm` (backend, latency model), privacy, baselines, stream generators, experiment sweeps |
 
 ## Reproducibility
 
-Seeds: models and data `0`; experiment runs `0-4`; tuning `100-101`. Trained encoder checkpoints and indexes are cached in `results/ckpt` and `results/cache`. Raw per-request records are in `results/raw`, aggregates (mean, std, 95% CI, n) in `results/agg`, figures in `results/figs`, tables in `results/tables`, JSON-lines logs in `results/logs`.
+- Seeds: models and data `0`; experiment runs `0`–`4`; tuning `100`–`101`.
+- Encoder checkpoints and indexes are cached in `results/ckpt` and `results/cache`; delete them to retrain from scratch.
+- Outputs: per-request records in `results/raw`, aggregates (mean, std, 95% CI, n) in `results/agg`, figures in `results/figs`, tables in `results/tables`, JSON-lines logs in `results/logs`.
+
+## Reference
+
+M. Sellami, *Evolving Reuse of LLM-Composed Service Workflows for Smart Governance*, IEEE Transactions on Services Computing (under review).
