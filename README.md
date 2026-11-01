@@ -71,12 +71,6 @@ All parameters are in `configs/default.yaml`; overrides are passed with `--confi
 | index | `M`, `ef_construction`, `ef_search` |
 | other | planner thresholds, `llm` (backend, latency model), privacy, baselines, stream generators, experiment sweeps |
 
-## Reproducibility
-
-- Seeds: models and data `0`; experiment runs `0`–`4`; tuning `100`–`101`.
-- Encoder checkpoints and indexes are cached in `results/ckpt` and `results/cache`; delete them to retrain from scratch.
-- Outputs: per-request records in `results/raw`, aggregates (mean, std, 95% CI, n) in `results/agg`, figures in `results/figs`, tables in `results/tables`, JSON-lines logs in `results/logs`.
-
 ## Reference
 
-M. Sellami, *Evolving Reuse of LLM-Composed Service Workflows for Smart Governance*, IEEE Transactions on Services Computing (under review).
+H. Mezni, Z. Brahmi, F. Ghedass, A. Albahli, H. Elmannai, S. Alalmaei, and A. Alsehaim, *Evolving Reuse of LLM-Composed Service Workflows for Smart Governance*, IEEE Transactions on Services Computing (under review).
